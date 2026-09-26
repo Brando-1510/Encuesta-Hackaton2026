@@ -1,0 +1,411 @@
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuesta de AgroVision para conocer las necesidades, experiencias y perspectivas del sector agrícola.">
+    <meta name="theme-color" content="#0B0B0C">
+    <title>AgroVision | Encuesta</title>
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/favicon.png">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main id="app" class="app" aria-live="polite">
+
+        <!-- =====================================================
+             SCREEN 1 — WELCOME
+             ===================================================== -->
+        <section id="welcome-screen" class="screen screen--welcome" aria-labelledby="welcome-title">
+            <div class="screen__container">
+                <!-- Brand -->
+                <header class="brand">
+                    <a href="#" class="brand__link" aria-label="AgroVision — Inicio">
+                        <img src="assets/logo.png" alt="AgroVision" class="brand__logo">
+                    </a>
+                </header>
+
+                <!-- Introduction -->
+                <div class="welcome">
+                    <p class="welcome__eyebrow">Encuesta AgroVision</p>
+                    <h1 id="welcome-title" class="welcome__title">
+                        Tu experiencia puede ayudar a transformar la agricultura.
+                    </h1>
+
+                    <p class="welcome__description">
+                        Queremos conocer las necesidades, experiencias y desafíos
+                        relacionados con el monitoreo y análisis de los cultivos.
+                        Tus respuestas nos ayudarán a construir una solución
+                        tecnológica más útil, accesible y enfocada en el agricultor.
+                    </p>
+                </div>
+
+                <!-- Survey Information -->
+                <div class="survey-meta" aria-label="Información de la encuesta">
+                    <div class="survey-meta__item">
+                        <span class="survey-meta__label" id="survey-time-label">
+                            Tiempo estimado
+                        </span>
+                        <span class="survey-meta__value" aria-labelledby="survey-time-label">
+                            2–3 minutos
+                        </span>
+                    </div>
+
+                    <div class="survey-meta__divider" aria-hidden="true"></div>
+                    <div class="survey-meta__item">
+                        <span class="survey-meta__label" id="survey-question-label">
+                            Preguntas
+                        </span>
+
+                        <span id="survey-question-count" class="survey-meta__value" aria-labelledby="survey-question-label">
+                            —
+                        </span>
+                    </div>
+
+                    <div class="survey-meta__divider" aria-hidden="true"></div>
+
+                    <div class="survey-meta__item">
+                        <span class="survey-meta__label" id="survey-purpose-label">
+                            Propósito
+                        </span>
+                        <span class="survey-meta__value" aria-labelledby="survey-purpose-label">
+                            Validación
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Action -->
+                <div class="welcome__actions">
+                    <button
+                        id="start-survey"
+                        class="button button--primary"
+                        type="button"
+                    >
+                        <span class="button__text">
+                            Comenzar encuesta
+                        </span>
+
+                        <span
+                            class="button__icon"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SCREEN 2 — SURVEY
+             ===================================================== -->
+        <section
+            id="survey-screen"
+            class="screen screen--survey"
+            aria-labelledby="question-title"
+            hidden
+        >
+
+            <div class="survey-layout">
+
+                <!-- Survey Header -->
+                <header class="survey-header">
+
+                    <div class="survey-header__container">
+
+                        <!-- Brand -->
+                        <div class="survey-header__brand">
+
+                            <a
+                                href="#"
+                                class="brand__link"
+                                aria-label="AgroVision — Inicio"
+                            >
+                                <img
+                                    src="assets/logo.png"
+                                    alt="AgroVision"
+                                    class="brand__logo"
+                                >
+                            </a>
+
+                        </div>
+
+                        <!-- Progress Information -->
+                        <div
+                            class="survey-progress"
+                            aria-label="Progreso de la encuesta"
+                        >
+
+                            <span
+                                id="question-counter"
+                                class="survey-progress__counter"
+                            >
+                                Pregunta 1 de 1
+                            </span>
+
+                            <span
+                                id="question-percentage"
+                                class="survey-progress__percentage"
+                            >
+                                0%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div
+                        class="progress"
+                        role="progressbar"
+                        aria-label="Progreso de la encuesta"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                    >
+
+                        <div
+                            id="progress-bar"
+                            class="progress__bar"
+                        ></div>
+
+                    </div>
+
+                </header>
+
+
+                <!-- Survey Content -->
+                <div class="survey-content">
+
+                    <div class="survey-content__container">
+
+                        <!-- Question -->
+                        <form
+                            id="survey-form"
+                            class="survey-form"
+                            novalidate
+                        >
+
+                            <!-- Dynamic Question Heading -->
+                            <div class="question">
+
+                                <p
+                                    id="question-category"
+                                    class="question__category"
+                                ></p>
+
+                                <h1
+                                    id="question-title"
+                                    class="question__title"
+                                    tabindex="-1"
+                                ></h1>
+
+                                <p
+                                    id="question-description"
+                                    class="question__description"
+                                ></p>
+
+                            </div>
+
+
+                            <!-- Dynamic Answers -->
+                            <fieldset
+                                id="question-options"
+                                class="question-options"
+                            >
+
+                                <legend
+                                    id="question-legend"
+                                    class="sr-only"
+                                >
+                                    Opciones de respuesta
+                                </legend>
+
+                                <!--
+                                    JavaScript renderiza aquí
+                                    las opciones de cada pregunta.
+                                -->
+
+                            </fieldset>
+
+
+                            <!-- Validation Message -->
+                            <p
+                                id="validation-message"
+                                class="form-message form-message--error"
+                                role="alert"
+                                hidden
+                            ></p>
+
+
+                            <!-- Navigation -->
+                            <nav
+                                class="survey-navigation"
+                                aria-label="Navegación de la encuesta"
+                            >
+
+                                <button
+                                    id="previous-question"
+                                    class="button button--secondary"
+                                    type="button"
+                                >
+                                    <span
+                                        class="button__icon"
+                                        aria-hidden="true"
+                                    >
+                                        ←
+                                    </span>
+
+                                    <span class="button__text">
+                                        Atrás
+                                    </span>
+                                </button>
+
+
+                                <button
+                                    id="next-question"
+                                    class="button button--primary"
+                                    type="submit"
+                                >
+                                    <span class="button__text">
+                                        Siguiente
+                                    </span>
+
+                                    <span
+                                        class="button__icon"
+                                        aria-hidden="true"
+                                    >
+                                        →
+                                    </span>
+                                </button>
+
+                            </nav>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Survey Footer -->
+                <footer class="survey-footer">
+
+                    <p class="survey-footer__text">
+                        AgroVision · Innovación para una agricultura más informada
+                    </p>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SCREEN 3 — THANK YOU
+             ===================================================== -->
+        <section
+            id="thankyou-screen"
+            class="screen screen--thankyou"
+            aria-labelledby="thankyou-title"
+            hidden
+        >
+
+            <div class="screen__container">
+
+                <!-- Brand -->
+                <header class="brand">
+
+                    <a
+                        href="#"
+                        class="brand__link"
+                        aria-label="AgroVision — Inicio"
+                    >
+                        <img
+                            src="assets/logo.png"
+                            alt="AgroVision"
+                            class="brand__logo"
+                        >
+                    </a>
+
+                </header>
+
+
+                <!-- Completion -->
+                <div class="thankyou">
+
+                    <div
+                        class="thankyou__icon"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </div>
+
+                    <p class="thankyou__eyebrow">
+                        Encuesta completada
+                    </p>
+
+                    <h1
+                        id="thankyou-title"
+                        class="thankyou__title"
+                    >
+                        ¡Gracias por participar!
+                    </h1>
+
+                    <p class="thankyou__description">
+                        Tu respuesta ha sido registrada correctamente.
+                        La información recopilada nos ayudará a comprender
+                        mejor las necesidades del sector y continuar desarrollando
+                        AgroVision.
+                    </p>
+
+                </div>
+
+
+                <!-- Final Action -->
+                <div class="thankyou__actions">
+
+                    <button id="finish-survey" class="button button--primary" type="button">
+                        <span class="button__text">
+                            Finalizar
+                        </span>
+                        <span class="button__icon" aria-hidden="true">
+                            →
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- =========================================================
+         NOSCRIPT FALLBACK
+         ========================================================= -->
+    <noscript>
+        <div class="noscript-message">
+            <div class="noscript-message__content">
+                <h1>JavaScript es necesario</h1>
+                <p>
+                    Esta encuesta utiliza JavaScript para mostrar las preguntas
+                    y registrar tus respuestas. Activa JavaScript en tu navegador
+                    para continuar.
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    <script src="js/app.js" defer></script>
+
+</body>
+</html>
